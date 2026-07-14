@@ -26,6 +26,9 @@ const config = {
     oaSecretKey: process.env.ZALO_OA_SECRET_KEY || "",
     // Official Account Callback Url khai bao tren Zalo Developers, dung cho luong cap quyen OAuth PKCE
     callbackUrl: process.env.ZALO_OA_CALLBACK_URL || "",
+    // Gia tri "content" cua the <meta name="zalo-platform-site-verification">,
+    // lay tu trang "Xac thuc domain" tren Zalo Developers
+    siteVerificationMeta: process.env.ZALO_SITE_VERIFICATION_META || "",
     // Gia tri ban dau, sau khi refresh se duoc luu vao Redis (hoac data/zalo-token.json neu khong dung Redis)
     initialAccessToken: process.env.ZALO_OA_ACCESS_TOKEN || "",
     initialRefreshToken: process.env.ZALO_OA_REFRESH_TOKEN || "",

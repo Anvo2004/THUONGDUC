@@ -19,6 +19,23 @@ app.use(express.static(config.server.publicDir));
 
 app.get("/health", (_req, res) => res.status(200).send("OK"));
 
+// Trang chu - chi de mang the <meta zalo-platform-site-verification> phuc vu buoc
+// "Xac thuc domain" tren Zalo Developers (Zalo yeu cau the nay nam trong <head> trang chu)
+app.get("/", (_req, res) => {
+  const metaTag = config.zalo.siteVerificationMeta
+    ? `<meta name="zalo-platform-site-verification" content="${config.zalo.siteVerificationMeta}" />`
+    : "";
+  res.status(200).send(`<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+${metaTag}
+<title>Thong tin xa Thuong Duc</title>
+</head>
+<body>OK</body>
+</html>`);
+});
+
 // Buoc 1: quan tri vien OA truy cap link nay de duoc dua toi trang phe duyet quyen cua Zalo
 app.get("/oauth/zalo/start", (_req, res) => {
   try {
