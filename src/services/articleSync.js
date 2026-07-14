@@ -64,7 +64,10 @@ async function syncArticles(state) {
 
   for (const batch of chunk(newArticles, config.zalo.listBatchSize)) {
     const items = batch.map(toArticleItem);
-    await zaloArticle.publishArticles(items);
+    const result = await zaloArticle.publishArticles(items);
+    // Dry-run khong duoc danh dau "da gui" - neu khong, khi bat ZALO_SEND_ENABLED=true
+    // sau nay cac tin da dry-run se bi bo qua vinh vien, khong bao gio gui that duoc.
+    if (result && result.dryRun) continue;
     batch.forEach((a) => store.markArticleSent(state, a.ArticleID));
     store.save(state);
   }

@@ -53,7 +53,9 @@ async function syncDocuments(state) {
 
   for (const batch of chunk(newDocs, config.zalo.listBatchSize)) {
     const items = batch.map(toArticleItem);
-    await zaloArticle.publishArticles(items);
+    const result = await zaloArticle.publishArticles(items);
+    // Dry-run khong duoc danh dau "da gui", xem giai thich trong articleSync.js
+    if (result && result.dryRun) continue;
     batch.forEach((d) => store.markDocumentSent(state, d));
     store.save(state);
   }
