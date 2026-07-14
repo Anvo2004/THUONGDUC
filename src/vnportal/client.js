@@ -4,6 +4,10 @@ const config = require("../config");
 const http = axios.create({
   baseURL: config.vnPortal.hostName,
   timeout: 15000,
+  // vnPortal tra HTTP 404 kem body {statusCode:404,message:"Khong co thong tin"}
+  // khi khong co du lieu phu hop (VD site chua co tin bai nao), day la ket qua
+  // hop le "rong" chu khong phai loi that su nen khong duoc de axios throw.
+  validateStatus: (status) => status === 200 || status === 404,
 });
 
 /**
@@ -28,6 +32,7 @@ async function getArticles(params = {}) {
       articleCatID: params.articleCatID,
     },
   });
+  if (data.statusCode === 404) return { items: [], paging: null };
   return { items: data.data || [], paging: data.paging };
 }
 
@@ -52,6 +57,7 @@ async function getDocuments(params = {}) {
       searchTerm: params.searchTerm,
     },
   });
+  if (data.statusCode === 404) return { items: [], paging: null };
   return { items: data.data || [], paging: data.paging };
 }
 
