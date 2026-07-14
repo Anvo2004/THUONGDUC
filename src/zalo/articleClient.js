@@ -5,19 +5,16 @@ const zaloClient = require("./client");
 const { truncate } = require("../utils/text");
 
 /**
- * Da doi chieu truc tiep voi tai lieu developers.zalo.me (nguoi dung gui screenshot that):
+ * Da doi chieu truc tiep voi tai lieu developers.zalo.me:
  *   - Tao bai viet:  POST https://openapi.zalo.me/v2.0/article/create
  *   - Kiem tra/verify (lay id that): POST https://openapi.zalo.me/v2.0/article/verify
- * Con thieu: API "Broadcast bai viet" (gui bai da tao toi nguoi theo doi OA) -
- * CHUA duoc xac nhan, xem BROADCAST_URL/broadcastArticle() ben duoi.
+ *   - Broadcast bai viet: POST https://openapi.zalo.me/v2.0/oa/message
+ *     (template_type "media", moi lan toi da 5 bai viet). Luu y: noi dung broadcast
+ *     can Zalo kiem duyet (~30 phut) truoc khi thuc su gui den nguoi dung.
  */
 const CREATE_URL = "https://openapi.zalo.me/v2.0/article/create";
 const VERIFY_URL = "https://openapi.zalo.me/v2.0/article/verify";
-// TODO: chua co tai lieu xac nhan endpoint that. Dat tam theo cai da tim thay qua
-// tim kiem cong khai (developers.zalo.me/docs/.../broadcast-bai-viet), CAN doi chieu
-// lai truoc khi dua vao dung that - xem broadcastArticle() ben duoi.
-const BROADCAST_URL =
-  process.env.ZALO_BROADCAST_ARTICLE_ENDPOINT || "https://openapi.zalo.me/v2.0/article/broadcast";
+const BROADCAST_URL = "https://openapi.zalo.me/v2.0/oa/message";
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -87,17 +84,42 @@ async function verifyArticle(token, { retries = 5, delayMs = 2000 } = {}) {
 }
 
 /**
- * !!! CHUA XAC NHAN VOI TAI LIEU CHINH THUC !!!
- * Gui (broadcast) bai viet da tao toi nguoi theo doi OA. Toi da 5 bai/lan theo
- * tai lieu cong dong. Se throw loi ro rang cho toi khi co xac nhan chinh thuc,
- * tranh goi nham 1 API doan mo hinh.
+ * Gui (broadcast) toi da 5 bai viet da tao toi toan bo nguoi quan tam OA
+ * (recipient.target rong = khong loc, gui cho tat ca).
  */
 async function broadcastArticle(articleIds) {
-  throw new Error(
-    "broadcastArticle() chua duoc xac nhan voi tai lieu Zalo chinh thuc (thieu trang 'Broadcast bai viet'). " +
-      `Bai viet da tao thanh cong (id: ${articleIds.join(", ")}) nhung CHUA duoc gui toi nguoi theo doi. ` +
-      "Cap nhat ham nay trong src/zalo/articleClient.js sau khi co tai lieu xac nhan."
+  if (articleIds.length > 5) {
+    throw new Error("Broadcast chi ho tro toi da 5 bai viet moi lan gui");
+  }
+
+  const payload = {
+    recipient: { target: {} },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "media",
+          elements: articleIds.map((id) => ({ media_type: "article", attachment_id: id })),
+        },
+      },
+    },
+  };
+
+  const accessToken = await zaloClient.getValidAccessToken();
+  const { data } = await axios.post(BROADCAST_URL, payload, {
+    headers: { "Content-Type": "application/json", access_token: accessToken },
+    timeout: 15000,
+  });
+
+  if (data.error !== 0 || !data.data || !data.data.message_id) {
+    throw new Error(`Broadcast bai viet Zalo that bai: ${JSON.stringify(data)}`);
+  }
+
+  logger.info(
+    `Da gui broadcast Zalo thanh cong, message_id: ${data.data.message_id} ` +
+      "(luu y: Zalo can ~30 phut kiem duyet truoc khi thuc su gui den nguoi dung)."
   );
+  return data.data.message_id;
 }
 
 /**
