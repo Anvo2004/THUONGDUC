@@ -75,3 +75,48 @@ và tự deploy qua GitHub Actions khi push lên nhánh `main`.
 `data/state.json` lưu lại `ArticleID` và khóa văn bản (`CodeID + DateOfIssued`)
 đã gửi. Xóa file này nếu muốn gửi lại từ đầu (cẩn thận: sẽ gửi lại toàn bộ tin
 hiện có trong lần chạy kế tiếp).
+
+## Web app Infographic + Video hướng dẫn PCTT
+
+Trang tĩnh cho người dân xem infographic và video hướng dẫn kỹ năng phòng
+chống thiên tai, phục vụ tại `/infographic/` và `/video/` trên cùng domain.
+Toàn bộ code + output nằm trong `frontend/`:
+
+```
+frontend/
+  scripts/
+    build-media-manifest.js   script chinh: quet docs/, nen anh, sinh HTML
+    lib/slugify.js, lib/parseOrder.js
+    templates/*.js             template HTML (layout, infographic, video)
+  public/                      thu muc phuc vu web (Express serve tinh)
+    assets/css, assets/js
+    data/media-manifest.json   commit git
+    infographic/**, video/**   HTML tinh, commit git
+    media/**                   anh/video nhi phan, GITIGNORE (qua lon cho git)
+```
+
+Sinh lúc build từ nội dung nguồn (đặt ở `docs/` tại gốc project, không commit
+vào git vì quá lớn):
+
+```
+docs/INFOGRAPHIC HƯỚNG DẪN KỸ NĂNG PCTT 2025.../   (~469MB, 228 ảnh JPG)
+docs/VIDEO HƯỚNG DẪN BÃO, LŨ, LŨ QUÉT, SẠT LỞ 2025.../  (~2GB, 14 video mp4)
+```
+
+```bash
+npm run build:media
+```
+
+Script quét `docs/`, nén ảnh (`sharp`, ~469MB → ~50MB), copy video, ghi
+`frontend/public/data/media-manifest.json`, và sinh HTML tĩnh vào
+`frontend/public/infographic/`, `frontend/public/video/` (các file này commit
+vào git bình thường). File nhị phân (`frontend/public/media/**`) bị gitignore
+vì quá lớn cho GitHub (video 100-185MB/file, vượt giới hạn 100MB) — triển khai
+riêng bằng `frontend/scripts/deploy-media.sh` (scp thẳng lên VPS), KHÔNG qua
+GitHub Actions.
+
+`src/server.js` phục vụ cả 2 thư mục tĩnh: `public/` (backend gốc, vd ảnh
+cover Zalo) và `frontend/public/` (web app), cùng mount ở `/`.
+
+Cập nhật nội dung sau này: chạy lại `npm run build:media` + `deploy-media.sh`,
+rồi `git push` như bình thường để publish HTML/manifest mới.

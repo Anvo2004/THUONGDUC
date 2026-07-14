@@ -16,6 +16,8 @@ app.use(
 );
 
 app.use(express.static(config.server.publicDir));
+// Web app Infographic/Video (sinh boi `npm run build:media`, xem frontend/scripts/)
+app.use(express.static(config.server.frontendPublicDir));
 
 app.get("/health", (_req, res) => res.status(200).send("OK"));
 
@@ -30,9 +32,25 @@ app.get("/", (_req, res) => {
 <head>
 <meta charset="utf-8" />
 ${metaTag}
-<title>Thong tin xa Thuong Duc</title>
+<title>Thông tin xã Thượng Đức</title>
+<link rel="stylesheet" href="/assets/css/media.css" />
 </head>
-<body>OK</body>
+<body>
+<header class="site-header">
+  <span class="brand">Thông tin xã Thượng Đức</span>
+  <nav class="main-nav">
+    <a href="/infographic/">Infographic</a>
+    <a href="/video/">Video hướng dẫn</a>
+  </nav>
+</header>
+<main>
+  <h1>Tài liệu tuyên truyền phòng chống thiên tai</h1>
+  <div class="grid">
+    <a class="card" href="/infographic/"><div class="card-body"><h3>Infographic hướng dẫn kỹ năng PCTT</h3><p class="muted">Xem theo chuyên đề: bão, lũ, sạt lở, động đất...</p></div></a>
+    <a class="card" href="/video/"><div class="card-body"><h3>Video hướng dẫn</h3><p class="muted">Phim hoạt hình hướng dẫn ứng phó bão, lũ, lũ quét, sạt lở</p></div></a>
+  </div>
+</main>
+</body>
 </html>`);
 });
 

@@ -47,6 +47,9 @@ const config = {
   server: {
     port: parseInt(process.env.PORT || "3000", 10),
     publicDir: process.env.PUBLIC_DIR || require("path").join(__dirname, "..", "public"),
+    // Web app Infographic/Video (xem frontend/scripts/build-media-manifest.js) - sinh boi npm run build:media
+    frontendPublicDir:
+      process.env.FRONTEND_PUBLIC_DIR || require("path").join(__dirname, "..", "frontend", "public"),
   },
 
   sync: {

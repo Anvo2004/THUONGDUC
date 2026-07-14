@@ -2,4 +2,6 @@ node_modules/
 .env
 data/state.json
 data/zalo-token.json
-docs/config.md
+docs/
+images/
+frontend/public/media/

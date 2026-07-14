@@ -7,12 +7,16 @@
   "scripts": {
     "start": "node src/index.js",
     "sync:once": "node src/index.js --once",
-    "server": "node src/server.js"
+    "server": "node src/server.js",
+    "build:media": "node frontend/scripts/build-media-manifest.js"
   },
   "dependencies": {
     "axios": "^1.7.9",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "node-cron": "^3.0.3"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.3"
   }
 }

@@ -1,0 +1,1780 @@
+{
+  "generatedAt": "2026-07-14T15:44:21.478Z",
+  "infographic": {
+    "categories": [
+      {
+        "slug": "bao-antd",
+        "order": 1,
+        "title": "Bão, ANTĐ",
+        "items": [
+          {
+            "slug": "cap-gio-va-muc-nguy-hai-cua-atnd-bao",
+            "order": 1,
+            "title": "Cấp gió và mức nguy hại của ATNĐ-Bão",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 265492
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 114104
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 147295
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 162198
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "dam-bao-an-toan-tau-thuyen-khi-co-atnd-bao",
+            "order": 2,
+            "title": "Đảm bảo an toàn tàu thuyền khi có ATNĐ Bão",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 309757
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 137393
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 177152
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 185853
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "huong-dan-neo-dau-tau-thuyen-tranh-tru-bao",
+            "order": 3,
+            "title": "Hướng dẫn neo đậu tàu thuyền tránh trú bão",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 281205
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 130151
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 165761
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 186395
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "hd-gia-co-bao-ve-ao-dam-long-be-thuy-san-truoc-bao",
+            "order": 4,
+            "title": "HD gia cố bảo vệ ao đầm lồng bè thủy sản trước bão",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 318654
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 128922
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 161355
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 188046
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "hd-dam-bao-an-toan-truoc-trong-atnd-bao-cho-ngu-dan",
+            "order": 5,
+            "title": "HD đảm bảo an toàn trước, trong ATNĐ Bão cho ngư dân",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 384492
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 164006
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 212613
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 218125
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "hd-an-toan-truoc-khi-bao-do-bo-cho-dan-cu-dat-lien",
+            "order": 6,
+            "title": "HD an toàn trước khi bão đổ bộ cho dân cư đất liền",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 350971
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 143256
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 196886
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 199471
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "hd-an-toan-khi-bao-do-bo-cho-dan-cu-dat-lien",
+            "order": 7,
+            "title": "HD an toàn khi bão đổ bộ cho dân cư đất liền",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 314515
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 141391
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 172766
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 205419
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "nhung-viec-can-lam-sau-bao",
+            "order": 8,
+            "title": "Những việc cần làm sau bão",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 343352
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 149637
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 215506
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 180928
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "hd-an-toan-cho-tre-em-khi-co-bao",
+            "order": 9,
+            "title": "HD an toàn cho trẻ em khi có bão",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 332586
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 143390
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 195897
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 172158
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          }
+        ]
+      },
+      {
+        "slug": "lu",
+        "order": 2,
+        "title": "Lũ",
+        "items": [
+          {
+            "slug": "nhung-viec-can-lam-truoc-lu",
+            "order": 1,
+            "title": "Những việc cần làm trước lũ",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 288577
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 128963
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 170311
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 158302
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "hd-kxy-nang-an-toan-trong-va-sau-lu",
+            "order": 2,
+            "title": "HD kxy năng an toàn trong và sau lũ",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 324144
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 137700
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 161761
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 186569
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "dam-bao-an-toan-khi-ho-thuy-dien-van-hanh-xa-lu",
+            "order": 3,
+            "title": "Đảm bảo an toàn khi hồ thủy điện vận hành xả lũ",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 318537
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 135180
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 179661
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 196639
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "huong-dan-dam-bao-an-toan-vung-lu-ngap-sau-nuoc-dang-nhanh",
+            "order": 4,
+            "title": "Hướng dẫn đảm bảo an toàn vùng lũ ngập sâu, nước dâng nhanh",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 303142
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 116074
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 138288
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 171480
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "ve-sinh-mt-phong-tranh-dich-benh-sau-mua-lu",
+            "order": 5,
+            "title": "Vệ sinh MT, phòng tránh dịch bệnh sau mua lũ",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 331478
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 143582
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 214856
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 152454
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "ky-nang-at-phong-tranh-duoi-nuoc-cho-tre-em",
+            "order": 6,
+            "title": "Kỹ năng AT phòng tránh đuối nước cho trẻ em",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 301786
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 134102
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 155211
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 175137
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          }
+        ]
+      },
+      {
+        "slug": "ngap-lut",
+        "order": 3,
+        "title": "Ngập lụt",
+        "items": [
+          {
+            "slug": "ngap-lut-nguyen-tac-phong-tranh",
+            "order": 1,
+            "title": "Ngập lụt nguyên tắc phòng tránh",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 342933
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 141058
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 151754
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 221917
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "hd-dam-bao-an-toan-khi-co-ngap-lut-do-thi",
+            "order": 2,
+            "title": "HD đảm bảo an toàn khi có ngập lụt đô thị",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 360403
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 156189
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 200455
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 217084
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          }
+        ]
+      },
+      {
+        "slug": "mua-lon",
+        "order": 4,
+        "title": "Mưa lớn",
+        "items": [
+          {
+            "slug": "info-mua-lon-nguyen-tac-phong-tranh",
+            "order": null,
+            "title": "Info-Mưa lớn nguyên tắc phòng tránh",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 357481
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 144484
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 159074
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 211999
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          }
+        ]
+      },
+      {
+        "slug": "lu-quet",
+        "order": 5,
+        "title": "Lũ quét",
+        "items": [
+          {
+            "slug": "nguyen-nhan-dau-hieu-nhan-biet-lu-quet",
+            "order": 1,
+            "title": "Nguyên nhân dấu hiệu nhận biết lũ quét",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 384770
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 153428
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 236180
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 177474
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "nhung-viec-nen-lam-de-an-toan-khi-co-lu-quet",
+            "order": 2,
+            "title": "Những việc nên làm để an toàn khi có lũ quét",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 359094
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 148568
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 202547
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 184051
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "nhung-viec-ko-nen-lam-de-an-toan-khi-co-lu-quet",
+            "order": 3,
+            "title": "Những việc ko nên làm để an toàn khi có lũ quét",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 363336
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 148410
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 211428
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 205838
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "chung-minh-phai-lam-gi-de-an-toan-khi-co-lu-quet",
+            "order": 4,
+            "title": "Chúng mình phải làm gì để an toàn khi có lũ quét",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 374332
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 152024
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 182535
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 224457
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          }
+        ]
+      },
+      {
+        "slug": "sat-lo-dat",
+        "order": 6,
+        "title": "Sạt lở đất",
+        "items": [
+          {
+            "slug": "nguyen-nhan-dau-hieu-nhan-biet-sat-lo-dat",
+            "order": 1,
+            "title": "Nguyên nhân dâu hiệu nhận biết sạt lở đất",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 310420
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 130713
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 160099
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 194992
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "sat-lo-dat-nhung-viec-nen-lam-de-dam-bao-an-toan",
+            "order": 2,
+            "title": "Sạt lở đất những việc nên làm để đảm bảo an toàn",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 385449
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 157897
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 234381
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 187974
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "sat-lo-dat-nhung-viec-ko-nen-lam-de-dam-bao-an-toan",
+            "order": 3,
+            "title": "Sạt lở đất những việc ko nên làm để đảm bảo an toàn",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 306949
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 136557
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 179275
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 175700
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "chung-minh-phai-lam-gi-de-dam-bao-at-khi-co-sat-lo-dat",
+            "order": 4,
+            "title": "Chúng mình phải làm gì để đảm bảo AT khi có sạt lở đất",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 351329
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 151718
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 182052
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 215272
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          }
+        ]
+      },
+      {
+        "slug": "loc",
+        "order": 7,
+        "title": "Lốc",
+        "items": [
+          {
+            "slug": "nguyen-tac-phong-tranh-dong-loc",
+            "order": 1,
+            "title": "Nguyên tắc phòng tránh dông lốc",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 346006
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 146793
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 197707
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 178584
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "hd-dam-bao-an-toan-khi-co-loc-xoay",
+            "order": 2,
+            "title": "HD đảm bảo an toàn khi có lốc xoáy",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 318619
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 139008
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 184551
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 173260
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          }
+        ]
+      },
+      {
+        "slug": "mua-da",
+        "order": 8,
+        "title": "Mưa đá",
+        "items": [
+          {
+            "slug": "mua-da-dau-hieu-nhan-biet",
+            "order": 1,
+            "title": "Mưa đá, dấu hiệu nhận biết",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 343537
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 147334
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 176065
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 194454
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "nhung-viec-nen-va-ko-nen-lam-khi-co-mua-da",
+            "order": 2,
+            "title": "Những việc nên và ko nên làm khi có mưa đá",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 335052
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 136915
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 202689
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 169562
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          }
+        ]
+      },
+      {
+        "slug": "nang-nong",
+        "order": 9,
+        "title": "Nắng nóng",
+        "items": [
+          {
+            "slug": "nhung-bien-phap-can-lam-khi-co-nang-nong",
+            "order": 1,
+            "title": "Những biện pháp cần làm khi có nắng nóng",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 351255
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 150910
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 193880
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 184730
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "bao-ve-cay-trong-vat-nuoi-khi-co-nang-nong",
+            "order": 2,
+            "title": "Bảo vệ cây trồng vật nuôi khi có nắng nóng",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 339521
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 145259
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 206558
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 166616
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "khuyen-cao-phong-benh-khi-co-nang-nong",
+            "order": 3,
+            "title": "Khuyến cáo phòng bệnh khi có nắng nóng",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 313081
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 134894
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 167142
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 180915
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "nhung-dieu-can-luu-y-khi-du-lich-mua-nang-nong",
+            "order": 4,
+            "title": "Những điều cần lưu ý khi du lịch mùa nắng nóng",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 314276
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 137512
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 163536
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 185293
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          }
+        ]
+      },
+      {
+        "slug": "xam-nhap-man",
+        "order": 10,
+        "title": "Xâm nhập mặn",
+        "items": [
+          {
+            "slug": "xam-nhap-man-tac-hai-va-bien-phap-bao-ve-nguon-nuoc",
+            "order": 1,
+            "title": "Xâm nhập mặn, tác hại và biện pháp bảo vệ nguồn nước",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 441432
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 175059
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 326637
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 210424
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "nhung-viec-can-lam-ung-phso-voi-xnm",
+            "order": 2,
+            "title": "Những việc cần làm ứng phso vơi XNM",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 338981
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 147221
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 194068
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 192924
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "giai-phap-chong-xam-nhap-man-cay-trong-vat-nuoi",
+            "order": 3,
+            "title": "Giải pháp chống xâm nhập mặn cây trồng vật nuôi",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 338626
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 149882
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 183552
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 172438
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          }
+        ]
+      },
+      {
+        "slug": "han-han",
+        "order": 11,
+        "title": "Hạn hán",
+        "items": [
+          {
+            "slug": "han-han-la-gi-nguyen-nhan-tac-hai-va-bp-ung-pho",
+            "order": 1,
+            "title": "Hạn hán là gì, nguyên nhân tác hại và bp ứng phó",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 376333
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 156617
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 211151
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 206066
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "nhung-viec-can-lam-ung-pho-voi-han-han",
+            "order": 2,
+            "title": "Những việc cần làm ứng phó với hạn hán",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 332774
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 136977
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 204119
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 170329
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "bien-phap-giam-thieu-thiet-hai-cho-cay-trong-vat-nuoi",
+            "order": 3,
+            "title": "Biện pháp giảm thiểu thiệt hại cho cây trồng, vật nuôi",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 337222
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 142456
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 202470
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 178794
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          }
+        ]
+      },
+      {
+        "slug": "ret-hai",
+        "order": 12,
+        "title": "Rét hại",
+        "items": [
+          {
+            "slug": "nhung-dieu-can-biet-de-phong-tranh-ret-hai",
+            "order": 1,
+            "title": "Những điều cần biết để phòng tránh rét hại",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 405625
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 163407
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 238547
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 193441
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "cach-phong-chong-ret-dam-ret-hai-cho-cay-trong",
+            "order": 2,
+            "title": "Cách phòng chống rét đậm, rét hại cho cây trồng",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 415871
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 168066
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 243234
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 205115
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "cach-phong-chong-ret-dam-ret-hai-cho-vat-nuoi",
+            "order": 3,
+            "title": "Cách phòng chống rét đậm, rét hại cho vật nuôi",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 342140
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 141266
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 218448
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 153038
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "cach-giu-am-trong-nhung-ngay-ret-dam-ret-hai",
+            "order": 4,
+            "title": "Cách giữ ấm trong những ngày rét đậm, rét hại",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 366795
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 151996
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 199457
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 205465
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "nhung-luu-y-khi-di-du-lich-mua-dong",
+            "order": 5,
+            "title": "Những lưu ý khi đi du lịch mùa đông",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 361100
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 149129
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 187407
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 195032
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          }
+        ]
+      },
+      {
+        "slug": "set",
+        "order": 13,
+        "title": "Sét",
+        "items": [
+          {
+            "slug": "set-la-gi-nguyen-nhan-hinh-thanh-dau-hieu-nhan-biet",
+            "order": 1,
+            "title": "Sét là gì, nguyên nhân hình thành, dấu hiệu nhận biết",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 335059
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 141925
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 203006
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 177359
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "cac-bien-phap-phong-chong-set",
+            "order": 2,
+            "title": "Các biện pháp phòng chống sét",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 341240
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 134676
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 195071
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 161601
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "cach-so-cuu-nan-nhan-bi-set-danh",
+            "order": 3,
+            "title": "Cách sơ cứu nạn nhân bị sét đánh",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 278491
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 119486
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 153799
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 158677
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          }
+        ]
+      },
+      {
+        "slug": "dong-dat",
+        "order": 14,
+        "title": "Động đất",
+        "items": [
+          {
+            "slug": "hd-ky-nang-ung-pho-voi-dong-dat-nguyen-nhan-dau-hieu-nhan-biet",
+            "order": 1,
+            "title": "HD kỹ năng ứng phó với động đất, nguyên nhân, dấu hiệu nhận biết",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 320215
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 116512
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 174889
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 159694
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "huong-dan-dam-bao-an-toan-khi-co-dong-dat",
+            "order": 2,
+            "title": "Hướng dẫn đảm bảo an toàn khi có động đất",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 265056
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 105947
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 141168
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 139353
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          },
+          {
+            "slug": "huong-dan-dam-bao-an-toan-sau-khi-co-dong-dat",
+            "order": 3,
+            "title": "Hướng dẫn đảm bảo an toàn sau khi có động đất",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 313298
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 130626
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 168021
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 179136
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          }
+        ]
+      },
+      {
+        "slug": "song-than",
+        "order": 15,
+        "title": "Sóng thần",
+        "items": [
+          {
+            "slug": "info-huong-dan-dam-bao-an-toan-khi-co-song-than",
+            "order": null,
+            "title": "Info Hướng dẫn đảm bảo an toàn khi có sóng thần",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 397108
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 158933
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 239444
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 205686
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          }
+        ]
+      },
+      {
+        "slug": "gio-manh-tren-bien",
+        "order": 16,
+        "title": "Gió mạnh trên biển",
+        "items": [
+          {
+            "slug": "info-huong-dan-ung-pho-voi-gio-manh-tren-bien",
+            "order": null,
+            "title": "Info- Hướng dẫn ứng phó với gió mạnh trên biển",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 354605
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 134312
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 191738
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 208615
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          }
+        ]
+      },
+      {
+        "slug": "suong-muoi",
+        "order": 17,
+        "title": "Sương muối",
+        "items": [
+          {
+            "slug": "info-suong-muoi-cach-bao-ve-cay-trong-vat-nuoi",
+            "order": null,
+            "title": "Info-Suong muoi, cách bảo vệ cây trồng, vật nuôi",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 385229
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 158042
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 203220
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 219258
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          }
+        ]
+      },
+      {
+        "slug": "suong-mu",
+        "order": 18,
+        "title": "Sương mù",
+        "items": [
+          {
+            "slug": "info-hd-an-toan-giao-thong-khi-co-suong-mu",
+            "order": null,
+            "title": "Info -HD an toàn giao thông khi có sương mù",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 307839
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 126589
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 135287
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 191432
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          }
+        ]
+      },
+      {
+        "slug": "chay-rung",
+        "order": 19,
+        "title": "Cháy rừng",
+        "items": [
+          {
+            "slug": "info-cac-bien-phap-phong-chong-chay-rung",
+            "order": null,
+            "title": "Info Các biên pháp phòng chống cháy rừng",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 377903
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 148783
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 169992
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 212652
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          }
+        ]
+      },
+      {
+        "slug": "o-nhiem-kk",
+        "order": 20,
+        "title": "Ô nhiễm KK",
+        "items": [
+          {
+            "slug": "info-o-nhiem-khong-khi-va-bien-phap-ung-pho",
+            "order": null,
+            "title": "Info- Ô nhiễm không khí và biện pháp ứng phó",
+            "formats": {
+              "portrait": {
+                "file": "portrait.jpg",
+                "bytes": 378929
+              },
+              "landscape": {
+                "file": "landscape.jpg",
+                "bytes": 145361
+              },
+              "square": [
+                {
+                  "file": "square-1.jpg",
+                  "bytes": 162811
+                },
+                {
+                  "file": "square-2.jpg",
+                  "bytes": 234485
+                }
+              ]
+            },
+            "thumbnail": "thumb/portrait.jpg"
+          }
+        ]
+      }
+    ]
+  },
+  "video": {
+    "categories": [
+      {
+        "slug": "bao-atnd",
+        "order": 1,
+        "title": "Bão-ATNĐ",
+        "items": [
+          {
+            "slug": "nhung-viec-can-lam-sau-bao-thu-ngu",
+            "order": 4,
+            "title": "NHỮNG VIỆC CẦN LÀM SAU BÃO  thu ngu",
+            "hasSignLanguage": true,
+            "bytes": 184653732,
+            "file": "nhung-viec-can-lam-sau-bao-thu-ngu.mp4"
+          },
+          {
+            "slug": "huong-dan-dam-bao-an-toan-truoc-va-trong-thu-ngu",
+            "order": 5,
+            "title": "HƯỚNG DẪN ĐẢM BẢO AN TOÀN TRƯỚC VÀ TRONG - THỦ NGỮ",
+            "hasSignLanguage": true,
+            "bytes": 174369646,
+            "file": "huong-dan-dam-bao-an-toan-truoc-va-trong-thu-ngu.mp4"
+          },
+          {
+            "slug": "huong-dan-gia-co-bao-ve-ao-dam-long-be-thu-ngu",
+            "order": 6,
+            "title": "HƯỚNG DẪN GIA CỐ BẢO VỆ AO, ĐẦM, LỒNG BÈ - THỦ NGỮ",
+            "hasSignLanguage": true,
+            "bytes": 149642671,
+            "file": "huong-dan-gia-co-bao-ve-ao-dam-long-be-thu-ngu.mp4"
+          }
+        ]
+      },
+      {
+        "slug": "lu",
+        "order": 2,
+        "title": "Lũ",
+        "items": [
+          {
+            "slug": "nhung-viec-can-lam-truoc-lu-ngap-lut",
+            "order": 1,
+            "title": "NHỮNG VIỆC CẦN LÀM TRƯỚC LŨ, NGẬP LỤT",
+            "hasSignLanguage": false,
+            "bytes": 157872547,
+            "file": "nhung-viec-can-lam-truoc-lu-ngap-lut.mp4"
+          },
+          {
+            "slug": "nhung-viec-nen-lam-va-khong-nen-lam-khi-xay-ra-lu-ngap-lut-thu-ngu",
+            "order": 2,
+            "title": "NHỮNG VIỆC NÊN LÀM VÀ KHÔNG NÊN LÀM KHI XẢY RA LŨ, NGẬP LỤT Thủ ngữ",
+            "hasSignLanguage": true,
+            "bytes": 117483364,
+            "file": "nhung-viec-nen-lam-va-khong-nen-lam-khi-xay-ra-lu-ngap-lut-thu-ngu.mp4"
+          },
+          {
+            "slug": "dam-bao-an-toan-khi-ho-thuy-dien-van-hanh-xa-lu-thu-ngu",
+            "order": 3,
+            "title": "ĐẢM BẢO AN TOÀN KHI HỒ THỦY ĐIỆN VẬN HÀNH XẢ LŨ thu ngu",
+            "hasSignLanguage": true,
+            "bytes": 122782792,
+            "file": "dam-bao-an-toan-khi-ho-thuy-dien-van-hanh-xa-lu-thu-ngu.mp4"
+          },
+          {
+            "slug": "huong-dan-ve-sinh-moi-truong-va-phong-tranh-dich-benh-sau-mua-lu-thu-ngu",
+            "order": 4,
+            "title": "HƯỚNG DẪN VỆ SINH MÔI TRƯỜNG VÀ PHÒNG TRÁNH DỊCH BỆNH SAU MƯA LŨ Thu Ngu",
+            "hasSignLanguage": true,
+            "bytes": 109652411,
+            "file": "huong-dan-ve-sinh-moi-truong-va-phong-tranh-dich-benh-sau-mua-lu-thu-ngu.mp4"
+          },
+          {
+            "slug": "ky-nang-an-toan-phong-tranh-duoi-nuoc-cho-tre-em-thu-ngu",
+            "order": 5,
+            "title": "KỸ NĂNG AN TOÀN, PHÒNG TRÁNH ĐUỐI NƯỚC CHO TRẺ EM _ THỦ NGỮ",
+            "hasSignLanguage": true,
+            "bytes": 117114382,
+            "file": "ky-nang-an-toan-phong-tranh-duoi-nuoc-cho-tre-em-thu-ngu.mp4"
+          }
+        ]
+      },
+      {
+        "slug": "lu-quet",
+        "order": 3,
+        "title": "Lũ quét",
+        "items": [
+          {
+            "slug": "lu-quet-dau-hieu-nhan-biet-va-nguyen-tac-phong-tranh-thu-ngu",
+            "order": 1,
+            "title": "LŨ QUÉT – DẤU HIỆU NHẬN BIẾT VÀ NGUYÊN TẮC PHÒNG TRÁNH_THỦ NGỮ",
+            "hasSignLanguage": true,
+            "bytes": 129597267,
+            "file": "lu-quet-dau-hieu-nhan-biet-va-nguyen-tac-phong-tranh-thu-ngu.mp4"
+          },
+          {
+            "slug": "lu-quet-nhung-viec-nen-lam-de-dam-bao-an-toan-truoc-lu-quet-thu-ngu",
+            "order": 2,
+            "title": "Lũ quét  -Những việc nên làm để đảm bảo an toàn trước lũ quét Thu Ngu",
+            "hasSignLanguage": true,
+            "bytes": 158298007,
+            "file": "lu-quet-nhung-viec-nen-lam-de-dam-bao-an-toan-truoc-lu-quet-thu-ngu.mp4"
+          },
+          {
+            "slug": "lu-quet-nhung-khong-viec-nen-lam-de-dam-bao-an-toan-truoc-lu-quet-thu-ngu",
+            "order": 3,
+            "title": "Lũ quét  -Những không việc nên làm để đảm bảo an toàn trước lũ quét thu ngu",
+            "hasSignLanguage": true,
+            "bytes": 128834495,
+            "file": "lu-quet-nhung-khong-viec-nen-lam-de-dam-bao-an-toan-truoc-lu-quet-thu-ngu.mp4"
+          },
+          {
+            "slug": "lu-quet-huong-dan-dam-bao-an-toan-cho-tre-em-truoc-lu-quet",
+            "order": 4,
+            "title": "LŨ QUÉT – HƯỚNG DẪN ĐẢM BẢO AN TOÀN CHO TRẺ EM TRƯỚC LŨ QUÉT",
+            "hasSignLanguage": false,
+            "bytes": 152048826,
+            "file": "lu-quet-huong-dan-dam-bao-an-toan-cho-tre-em-truoc-lu-quet.mp4"
+          }
+        ]
+      },
+      {
+        "slug": "sat-lo-dat",
+        "order": 4,
+        "title": "Sạt lở đất",
+        "items": [
+          {
+            "slug": "nhung-viec-khong-nen-lam-de-ung-pho-voi-sat-lo-dat-thu-ngu",
+            "order": 3,
+            "title": "NHỮNG VIỆC KHÔNG NÊN LÀM ĐỂ ỨNG PHÓ VỚI SẠT LỞ ĐẤT Thủ ngữ",
+            "hasSignLanguage": true,
+            "bytes": 157451444,
+            "file": "nhung-viec-khong-nen-lam-de-ung-pho-voi-sat-lo-dat-thu-ngu.mp4"
+          }
+        ]
+      },
+      {
+        "slug": "set",
+        "order": 5,
+        "title": "Sét",
+        "items": [
+          {
+            "slug": "set-va-cac-bien-phap-phong-tranh-set-thu-ngu",
+            "order": 1,
+            "title": "SÉT VÀ CÁC BIỆN PHÁP PHÒNG TRÁNH SÉT thu ngu",
+            "hasSignLanguage": true,
+            "bytes": 193783002,
+            "file": "set-va-cac-bien-phap-phong-tranh-set-thu-ngu.mp4"
+          }
+        ]
+      }
+    ]
+  }
+}
