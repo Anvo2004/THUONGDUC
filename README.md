@@ -74,3 +74,4 @@ Task Scheduler trỏ vào `npm start`.
 `data/state.json` lưu lại `ArticleID` và khóa văn bản (`CodeID + DateOfIssued`)
 đã gửi. Xóa file này nếu muốn gửi lại từ đầu (cẩn thận: sẽ gửi lại toàn bộ tin
 hiện có trong lần chạy kế tiếp).
+
