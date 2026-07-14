@@ -1,7 +1,7 @@
 const config = require("../config");
 const logger = require("../utils/logger");
 const vnPortal = require("../vnportal/client");
-const zalo = require("../zalo/client");
+const zaloArticle = require("../zalo/articleClient");
 const { stripHtml, truncate } = require("../utils/text");
 const store = require("../state/store");
 
@@ -24,12 +24,13 @@ async function fetchLatestArticles() {
   return results.flatMap((r) => r.items);
 }
 
-function toListItem(article) {
+function toArticleItem(article) {
+  const summary = truncate(stripHtml(article.Summary) || article.ArticleCatName || "", 300);
   return {
-    title: truncate(article.Title, 100),
-    subtitle: truncate(stripHtml(article.Summary) || article.ArticleCatName || "", 100),
-    imageUrl: article.ImagePath || undefined,
-    url: article.ArticleLink,
+    title: truncate(article.Title, 150),
+    description: summary,
+    bodyText: `${summary}\n\nNguồn: ${article.ArticleLink}`,
+    coverPhotoUrl: article.ImagePath || config.zalo.defaultCoverUrl || undefined,
   };
 }
 
@@ -40,8 +41,18 @@ async function syncArticles(state) {
   // Sap xep tang dan theo ngay tao de gui theo dung thu tu thoi gian xay ra
   const sorted = [...articles].sort((a, b) => new Date(a.DateCreate) - new Date(b.DateCreate));
 
-  const newArticles = sorted
-    .filter((a) => a.Approved !== false && !store.isArticleSent(state, a.ArticleID))
+  const unsent = sorted.filter((a) => a.Approved !== false && !store.isArticleSent(state, a.ArticleID));
+
+  const withoutCover = unsent.filter((a) => !a.ImagePath && !config.zalo.defaultCoverUrl);
+  if (withoutCover.length) {
+    logger.warn(
+      `${withoutCover.length} tin bai khong co anh (ImagePath) va chua cau hinh ZALO_DEFAULT_COVER_URL, se bo qua: ` +
+        withoutCover.map((a) => a.ArticleID).join(", ")
+    );
+  }
+
+  const newArticles = unsent
+    .filter((a) => a.ImagePath || config.zalo.defaultCoverUrl)
     .slice(0, config.sync.maxNewItemsPerRun);
 
   if (newArticles.length === 0) {
@@ -52,8 +63,8 @@ async function syncArticles(state) {
   logger.info(`Phat hien ${newArticles.length} tin bai moi, chuan bi gui Zalo OA...`);
 
   for (const batch of chunk(newArticles, config.zalo.listBatchSize)) {
-    const items = batch.map(toListItem);
-    await zalo.broadcastListMessage(items);
+    const items = batch.map(toArticleItem);
+    await zaloArticle.publishArticles(items);
     batch.forEach((a) => store.markArticleSent(state, a.ArticleID));
     store.save(state);
   }

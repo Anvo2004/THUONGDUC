@@ -33,6 +33,8 @@ const config = {
     initialAccessToken: process.env.ZALO_OA_ACCESS_TOKEN || "",
     initialRefreshToken: process.env.ZALO_OA_REFRESH_TOKEN || "",
     listBatchSize: parseInt(process.env.ZALO_LIST_BATCH_SIZE || "5", 10),
+    // Anh cover mac dinh khi tin bai/van ban khong co ImagePath (Zalo Article bat buoc phai co cover)
+    defaultCoverUrl: process.env.ZALO_DEFAULT_COVER_URL || "",
     // true = thuc su goi API gui tin; false = chi log ra console (dry-run)
     sendEnabled: (process.env.ZALO_SEND_ENABLED || "false").toLowerCase() === "true",
   },
