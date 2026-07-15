@@ -56,8 +56,27 @@ async function syncArticles(state) {
   if (!config.sync.articlesEnabled) return;
 
   const articles = await fetchNewArticleDetails(state);
+
+  // Loc bai qua cu theo DateCreate THAT (tu getArticleDetail) - trang chu vnPortal co
+  // cac khoi noi dung "goi y/noi bat" co dinh (vd "Dat va nguoi Thuong Duc") khong theo
+  // thu tu thoi gian, de bi quet nham la "bai moi" dan den tao trung lien tuc moi lan
+  // dong bo. Danh dau "da xu ly" luon (ke ca dry-run) de khong quet lai vinh vien.
+  const maxAgeMs = config.sync.maxArticleAgeDays * 24 * 60 * 60 * 1000;
+  const now = Date.now();
+  const tooOld = articles.filter((a) => now - new Date(a.DateCreate).getTime() > maxAgeMs);
+  if (tooOld.length) {
+    logger.info(
+      `Bo qua ${tooOld.length} bai qua cu (qua ${config.sync.maxArticleAgeDays} ngay, ` +
+        "co the la khoi noi bat/goi y tren trang chu chu khong phai bai moi that su): " +
+        tooOld.map((a) => `${a.ArticleID} (${a.DateCreate})`).join(", ")
+    );
+    tooOld.forEach((a) => store.markArticleSent(state, a.ArticleID));
+    store.save(state);
+  }
+  const recentArticles = articles.filter((a) => now - new Date(a.DateCreate).getTime() <= maxAgeMs);
+
   // Sap xep tang dan theo ngay tao de gui theo dung thu tu thoi gian xay ra
-  const sorted = [...articles].sort((a, b) => new Date(a.DateCreate) - new Date(b.DateCreate));
+  const sorted = [...recentArticles].sort((a, b) => new Date(a.DateCreate) - new Date(b.DateCreate));
 
   const withoutCover = sorted.filter((a) => !a.ImagePath && !config.zalo.defaultCoverUrl);
   if (withoutCover.length) {
@@ -84,8 +103,16 @@ async function syncArticles(state) {
     // Dry-run khong duoc danh dau "da gui" - neu khong, khi bat ZALO_SEND_ENABLED=true
     // sau nay cac tin da dry-run se bi bo qua vinh vien, khong bao gio gui that duoc.
     if (result && result.dryRun) continue;
-    batch.forEach((a) => store.markArticleSent(state, a.ArticleID));
-    store.save(state);
+
+    // Danh dau + luu ngay theo TUNG bai thanh cong - khong doi ca lo xong moi luu,
+    // de 1 bai loi (vd verify het retry) khong lam mat trang thai cua bai da tao
+    // thanh cong truoc do trong cung lo (nguyen nhan gay trung bai da gap phai).
+    result.results.forEach((r, idx) => {
+      if (r.id) {
+        store.markArticleSent(state, batch[idx].ArticleID);
+        store.save(state);
+      }
+    });
   }
 }
 

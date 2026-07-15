@@ -157,9 +157,14 @@ async function publishArticles(items) {
  * Tao + verify 1 nhom bai (khong broadcast) - dung cho dong bo tu dong: chi dua bai
  * len muc "Noi dung" cua OA (o trang thai "An" toi khi co nguoi chu dong xem/broadcast
  * thu cong), KHONG tu dong gui toi nguoi theo doi.
+ *
+ * Moi item duoc try/catch RIENG: neu 1 bai loi (vd verify het retry), cac bai con lai
+ * trong cung lo van duoc tra ve id thanh cong binh thuong - khong duoc de 1 bai loi lam
+ * mat ket qua cua ca lo (truoc day throw ngay khi gap loi dau tien khien caller khong kip
+ * luu "da gui" cho nhung bai da tao thanh cong truoc do, dan den lan chay sau tao trung).
  */
 async function createArticles(items) {
-  if (!items.length) return;
+  if (!items.length) return { results: [] };
 
   if (!config.zalo.sendEnabled) {
     logger.info(
@@ -169,16 +174,21 @@ async function createArticles(items) {
     return { dryRun: true };
   }
 
-  const articleIds = [];
+  const results = [];
   for (const item of items) {
-    const token = await createArticle(item);
-    // Bai day du noi dung + anh can nhieu thoi gian xu ly hon ("Media is being
-    // processed"), tang retries/delay de tranh bao loi gia khi Zalo chua kip xong.
-    const id = await verifyArticle(token, { retries: 8, delayMs: 3000 });
-    logger.info(`Da tao bai viet Zalo thanh cong (chua broadcast), id: ${id} (${item.title})`);
-    articleIds.push(id);
+    try {
+      const token = await createArticle(item);
+      // Bai day du noi dung + anh can nhieu thoi gian xu ly hon ("Media is being
+      // processed"), tang retries/delay de tranh bao loi gia khi Zalo chua kip xong.
+      const id = await verifyArticle(token, { retries: 8, delayMs: 3000 });
+      logger.info(`Da tao bai viet Zalo thanh cong (chua broadcast), id: ${id} (${item.title})`);
+      results.push({ item, id });
+    } catch (err) {
+      logger.error(`Loi tao bai viet "${item.title}", se thu lai o lan dong bo sau:`, err.message);
+      results.push({ item, error: err.message });
+    }
   }
-  return { articleIds };
+  return { results };
 }
 
 module.exports = { createArticle, verifyArticle, broadcastArticle, publishArticles, createArticles };

@@ -59,6 +59,11 @@ const config = {
     cronExpression: process.env.SYNC_CRON_EXPRESSION || "*/10 * * * *",
     // so tin moi toi da xu ly trong 1 lan poll (tranh spam khi lan dau chay / mat ket noi lau)
     maxNewItemsPerRun: parseInt(process.env.SYNC_MAX_NEW_ITEMS_PER_RUN || "20", 10),
+    // Bo qua bai co DateCreate (ngay that lay tu getArticleDetail) cu hon X ngay - trang chu
+    // vnPortal co cac khoi noi dung "goi y/noi bat" co dinh (vd "Dat va nguoi Thuong Duc")
+    // khong theo thu tu thoi gian, de bi nham la "bai moi" neu chi dua vao viec link co
+    // xuat hien tren trang chu hay khong.
+    maxArticleAgeDays: parseInt(process.env.SYNC_MAX_ARTICLE_AGE_DAYS || "3", 10),
   },
 
   paths: {
