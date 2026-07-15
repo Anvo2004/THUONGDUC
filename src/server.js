@@ -1,4 +1,6 @@
 const crypto = require("crypto");
+const fs = require("fs");
+const path = require("path");
 const express = require("express");
 const config = require("./config");
 const logger = require("./utils/logger");
@@ -15,44 +17,40 @@ app.use(
   })
 );
 
-app.use(express.static(config.server.publicDir));
-// Web app Infographic/Video (sinh boi `npm run build:media`, xem frontend/scripts/)
-app.use(express.static(config.server.frontendPublicDir));
+// Trang chu: phuc vu index.html cua web app, chen the
+// <meta zalo-platform-site-verification> ma Zalo Developers yeu cau phai nam trong
+// <head> trang chu (buoc "Xac thuc domain").
+//
+// PHAI khai bao TRUOC express.static: static se tu tra frontend/public/index.html cho "/"
+// va lam mat the xac thuc. (Khong dung { index: false } de chan - nhu vay se tat index.html
+// cua CA cac thu muc con, lam /infographic/ va /video/ thanh 404.)
+const HOME_HTML_PATH = path.join(config.server.frontendPublicDir, "index.html");
 
-app.get("/health", (_req, res) => res.status(200).send("OK"));
-
-// Trang chu - chi de mang the <meta zalo-platform-site-verification> phuc vu buoc
-// "Xac thuc domain" tren Zalo Developers (Zalo yeu cau the nay nam trong <head> trang chu)
 app.get("/", (_req, res) => {
   const metaTag = config.zalo.siteVerificationMeta
     ? `<meta name="zalo-platform-site-verification" content="${config.zalo.siteVerificationMeta}" />`
     : "";
-  res.status(200).send(`<!doctype html>
-<html lang="vi">
-<head>
-<meta charset="utf-8" />
-${metaTag}
-<title>Thông tin xã Thượng Đức</title>
-<link rel="stylesheet" href="/assets/css/media.css" />
-</head>
-<body>
-<header class="site-header">
-  <span class="brand">Thông tin xã Thượng Đức</span>
-  <nav class="main-nav">
-    <a href="/infographic/">Infographic</a>
-    <a href="/video/">Video hướng dẫn</a>
-  </nav>
-</header>
-<main>
-  <h1>Tài liệu tuyên truyền phòng chống thiên tai</h1>
-  <div class="grid">
-    <a class="card" href="/infographic/"><div class="card-body"><h3>Infographic hướng dẫn kỹ năng PCTT</h3><p class="muted">Xem theo chuyên đề: bão, lũ, sạt lở, động đất...</p></div></a>
-    <a class="card" href="/video/"><div class="card-body"><h3>Video hướng dẫn</h3><p class="muted">Phim hoạt hình hướng dẫn ứng phó bão, lũ, lũ quét, sạt lở</p></div></a>
-  </div>
-</main>
-</body>
-</html>`);
+
+  let html;
+  try {
+    html = fs.readFileSync(HOME_HTML_PATH, "utf8");
+  } catch (err) {
+    // Chua chay build:pages -> van phai tra ve the xac thuc de Zalo khong bao loi.
+    logger.warn(`Khong doc duoc ${HOME_HTML_PATH}: ${err.message}`);
+    return res
+      .status(200)
+      .send(`<!doctype html><html lang="vi"><head><meta charset="utf-8" />${metaTag}<title>Thông tin xã Thượng Đức</title></head><body><p>Trang đang được cập nhật.</p></body></html>`);
+  }
+
+  if (metaTag) html = html.replace("</head>", `${metaTag}\n</head>`);
+  res.status(200).type("html").send(html);
 });
+
+app.use(express.static(config.server.publicDir));
+// Web app Infographic/Video (sinh boi `npm run build:media` / `npm run build:pages`)
+app.use(express.static(config.server.frontendPublicDir));
+
+app.get("/health", (_req, res) => res.status(200).send("OK"));
 
 // Buoc 1: quan tri vien OA truy cap link nay de duoc dua toi trang phe duyet quyen cua Zalo
 app.get("/oauth/zalo/start", (_req, res) => {

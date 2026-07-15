@@ -260,40 +260,8 @@ function copyVideoFiles(video) {
 
 // ---------- Sinh HTML tinh ----------
 
-const { renderInfographicIndex, renderInfographicCategory, renderInfographicDetail } = require("./templates/infographicPages");
-const { renderVideoIndex, renderVideoCategory, renderVideoDetail } = require("./templates/videoPages");
-
-function writeHtml(urlPath, html) {
-  // urlPath vd "/infographic/bao-antd/" -> public/infographic/bao-antd/index.html
-  const filePath = path.join(PUBLIC_DIR, urlPath, "index.html");
-  fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  fs.writeFileSync(filePath, html);
-}
-
-function generateStaticPages(infographic, video) {
-  fs.rmSync(path.join(PUBLIC_DIR, "infographic"), { recursive: true, force: true });
-  fs.rmSync(path.join(PUBLIC_DIR, "video"), { recursive: true, force: true });
-
-  writeHtml("/infographic/", renderInfographicIndex(infographic));
-  for (const cat of infographic.categories) {
-    writeHtml(`/infographic/${cat.slug}/`, renderInfographicCategory(cat));
-    cat.items.forEach((item, i) => {
-      const prev = cat.items[i - 1] || null;
-      const next = cat.items[i + 1] || null;
-      writeHtml(`/infographic/${cat.slug}/${item.slug}/`, renderInfographicDetail(cat, item, prev, next));
-    });
-  }
-
-  writeHtml("/video/", renderVideoIndex(video));
-  for (const cat of video.categories) {
-    writeHtml(`/video/${cat.slug}/`, renderVideoCategory(cat));
-    cat.items.forEach((item, i) => {
-      const prev = cat.items[i - 1] || null;
-      const next = cat.items[i + 1] || null;
-      writeHtml(`/video/${cat.slug}/${item.slug}/`, renderVideoDetail(cat, item, prev, next));
-    });
-  }
-}
+// Dung chung voi build-pages.js (sinh lai HTML tu manifest, khong can docs/).
+const { generateStaticPages } = require("./lib/generatePages");
 
 // ---------- Main ----------
 
@@ -328,9 +296,11 @@ async function main() {
   );
   log("Da ghi manifest:", MANIFEST_PATH);
 
+  // Luu y: manifest ghi o tren giu TIEU DE GOC (theo ten file nguon). Viec lam sach
+  // tieu de de hien thi dien ra luc render, trong generateStaticPages().
   log("Dang sinh trang HTML tinh...");
-  generateStaticPages(infographic, video);
-  log("Da sinh xong trang HTML vao public/infographic/ va public/video/");
+  const { pageCount } = generateStaticPages({ infographic, video });
+  log(`Da sinh ${pageCount} trang HTML vao public/ (trang chu, infographic/, video/)`);
 }
 
 main().catch((err) => {

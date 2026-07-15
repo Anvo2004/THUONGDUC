@@ -85,15 +85,38 @@ Toàn bộ code + output nằm trong `frontend/`:
 ```
 frontend/
   scripts/
-    build-media-manifest.js   script chinh: quet docs/, nen anh, sinh HTML
+    build-media-manifest.js   quet docs/, nen anh, sinh manifest + HTML  (can docs/)
+    build-pages.js            sinh lai HTML tu manifest da commit        (KHONG can docs/)
     lib/slugify.js, lib/parseOrder.js
-    templates/*.js             template HTML (layout, infographic, video)
+    lib/titles.js             lam sach tieu de hien thi (viet tat, loi go, VIET HOA)
+    lib/categoryMeta.js       bieu tuong + mau cho tung chuyen de thien tai
+    lib/generatePages.js      sinh trang + chi muc tim kiem (dung chung 2 script tren)
+    templates/*.js            template HTML (layout, home, infographic, video)
   public/                      thu muc phuc vu web (Express serve tinh)
-    assets/css, assets/js
+    assets/css/media.css       he thong giao dien (sang/toi, uu tien dien thoai)
+    assets/js/viewer.js        doi kho anh, phong to anh, chia se
+    assets/js/search.js        tim kiem khong dau, chay tren trinh duyet
     data/media-manifest.json   commit git
-    infographic/**, video/**   HTML tinh, commit git
+    data/search-index.json     sinh ra luc build, commit git
+    index.html                 trang chu, infographic/**, video/**  - HTML tinh, commit git
     media/**                   anh/video nhi phan, GITIGNORE (qua lon cho git)
+    vercel.json                cau hinh khi trien khai ban tinh len Vercel
 ```
+
+### Sua giao dien (khong can docs/)
+
+```bash
+npm run build:pages
+```
+
+Sinh lai toan bo HTML tu `frontend/public/data/media-manifest.json` da commit — dung
+khi chi doi template/CSS/tieu de. Khong can thu muc `docs/` (~2.5GB) va khong can `sharp`.
+Chay `npm run build:media` chi khi noi dung nguon (anh/video) thay doi.
+
+**Tieu de**: manifest giu tieu de GOC theo ten file. Viec lam sach de hien thi
+(`HD` → `Hướng dẫn`, `ko` → `không`, bo `_THỦ NGỮ`, ha VIET HOA...) chay luc render trong
+`lib/titles.js`. Luu y: **khong duoc doi slug** — slug da nam trong URL dang chay va trong
+duong dan file media tren VPS (`/media/infographic/<catSlug>/<itemSlug>/`).
 
 Sinh lúc build từ nội dung nguồn (đặt ở `docs/` tại gốc project, không commit
 vào git vì quá lớn):
@@ -118,5 +141,26 @@ GitHub Actions.
 `src/server.js` phục vụ cả 2 thư mục tĩnh: `public/` (backend gốc, vd ảnh
 cover Zalo) và `frontend/public/` (web app), cùng mount ở `/`.
 
+⚠️ Route `app.get("/")` phải khai báo **trước** `express.static(frontendPublicDir)`.
+Trang chủ cần chèn thẻ `<meta zalo-platform-site-verification>` vào `<head>`; nếu để
+static tự trả `frontend/public/index.html` thì thẻ này biến mất → hỏng bước "Xác thực
+domain" trên Zalo Developers. (Cũng không dùng `{ index: false }` để chặn — nó tắt
+index.html của **cả** thư mục con, làm `/infographic/` và `/video/` thành 404.)
+
 Cập nhật nội dung sau này: chạy lại `npm run build:media` + `deploy-media.sh`,
 rồi `git push` như bình thường để publish HTML/manifest mới.
+
+## Triển khai bản tĩnh lên Vercel
+
+Import repo trên vercel.com với **Root Directory = `frontend/public`**, Framework
+Preset = Other, không có build command (HTML đã commit sẵn).
+
+`frontend/public/vercel.json` lo phần ảnh/video: file nhị phân bị gitignore nên không
+có trên GitHub, Vercel lấy chúng từ VPS —
+- **ảnh** (`/media/infographic/*`): `rewrites` → proxy qua Vercel, URL vẫn thuộc domain
+  Vercel và được CDN cache lại;
+- **video** (`/media/video/*`): `redirects` → tải thẳng từ VPS, tránh đốt 100GB băng
+  thông/tháng của gói Hobby vì mỗi video nặng 100–185MB.
+
+Hệ quả: bản Vercel phụ thuộc VPS để có media. VPS sập thì giao diện vẫn chạy nhưng
+ảnh/video mất.
