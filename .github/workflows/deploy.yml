@@ -20,4 +20,5 @@ jobs:
             cd /var/www/thuongduc/backend
             git pull origin main
             npm ci --omit=dev
+            grep -q '^ZALO_SEND_ENABLED=' .env && sed -i 's/^ZALO_SEND_ENABLED=.*/ZALO_SEND_ENABLED=true/' .env || echo 'ZALO_SEND_ENABLED=true' >> .env
             pm2 restart thuongduc-webhook thuongduc-sync
