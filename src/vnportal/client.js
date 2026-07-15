@@ -45,6 +45,32 @@ async function getArticleDetail(articleId, languageId = config.vnPortal.language
 }
 
 /**
+ * Workaround: /api/public/articles (danh sach) luon tra 404 "Khong co thong tin"
+ * du truyen bat ky tham so nao (da kiem tra: bo loc category, bo LanguageId, bo het
+ * tham so...), trong khi /api/public/articles/{lang}/{id} (chi tiet 1 bai) va
+ * /api/public/documents (danh sach van ban) van hoat dong binh thuong. Day la loi/thieu
+ * cau hinh o phia vnPortal cho rieng module danh sach bai viet cua site nay, khong phai
+ * do tham so goi sai - can bao lai vnPortal/VNPT de ho bat lai module nay.
+ *
+ * Trong luc cho vnPortal xu ly, dung trang chu (server-render san, luon co danh sach
+ * bai moi nhat o moi chuyen muc) de tach ArticleID moi thay vi goi API danh sach.
+ */
+async function getRecentArticleLinks() {
+  const { data: html } = await http.get("/");
+  const linkPattern = /href="(\/[^"]+-(\d{5,}))"/gi;
+  const seen = new Map();
+  let match;
+  while ((match = linkPattern.exec(html))) {
+    const [, link, idStr] = match;
+    const articleId = parseInt(idStr, 10);
+    if (!seen.has(articleId)) {
+      seen.set(articleId, `${config.vnPortal.hostName}${link}`);
+    }
+  }
+  return [...seen.entries()].map(([articleId, link]) => ({ articleId, link }));
+}
+
+/**
  * GET /api/public/documents
  * @param {{pageNumber?: number, pageSize?: number, languageId?: string, searchTerm?: string}} params
  */
@@ -61,4 +87,4 @@ async function getDocuments(params = {}) {
   return { items: data.data || [], paging: data.paging };
 }
 
-module.exports = { getCategories, getArticles, getArticleDetail, getDocuments };
+module.exports = { getCategories, getArticles, getArticleDetail, getDocuments, getRecentArticleLinks };

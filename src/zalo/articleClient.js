@@ -153,4 +153,32 @@ async function publishArticles(items) {
   return { articleIds };
 }
 
-module.exports = { createArticle, verifyArticle, broadcastArticle, publishArticles };
+/**
+ * Tao + verify 1 nhom bai (khong broadcast) - dung cho dong bo tu dong: chi dua bai
+ * len muc "Noi dung" cua OA (o trang thai "An" toi khi co nguoi chu dong xem/broadcast
+ * thu cong), KHONG tu dong gui toi nguoi theo doi.
+ */
+async function createArticles(items) {
+  if (!items.length) return;
+
+  if (!config.zalo.sendEnabled) {
+    logger.info(
+      "[DRY-RUN] ZALO_SEND_ENABLED=false, se KHONG tao bai viet that. Du dinh tao:",
+      JSON.stringify(items, null, 2)
+    );
+    return { dryRun: true };
+  }
+
+  const articleIds = [];
+  for (const item of items) {
+    const token = await createArticle(item);
+    // Bai day du noi dung + anh can nhieu thoi gian xu ly hon ("Media is being
+    // processed"), tang retries/delay de tranh bao loi gia khi Zalo chua kip xong.
+    const id = await verifyArticle(token, { retries: 8, delayMs: 3000 });
+    logger.info(`Da tao bai viet Zalo thanh cong (chua broadcast), id: ${id} (${item.title})`);
+    articleIds.push(id);
+  }
+  return { articleIds };
+}
+
+module.exports = { createArticle, verifyArticle, broadcastArticle, publishArticles, createArticles };

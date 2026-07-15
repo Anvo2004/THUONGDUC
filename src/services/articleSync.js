@@ -11,25 +11,43 @@ function chunk(arr, size) {
   return out;
 }
 
-async function fetchLatestArticles() {
-  const catIds = config.vnPortal.articleCatIds;
-  if (catIds.length === 0) {
-    const { items } = await vnPortal.getArticles({ pageNumber: 1 });
-    return items;
-  }
-  // Neu co loc theo nhieu chuyen muc, goi rieng tung chuyen muc roi gop lai
-  const results = await Promise.all(
-    catIds.map((catId) => vnPortal.getArticles({ pageNumber: 1, articleCatID: catId }))
+// vnPortal.getArticles() (API danh sach) hien luon tra 404 "Khong co thong tin" du
+// truyen tham so gi (loi/thieu cau hinh phia vnPortal cho module bai viet cua site nay -
+// xem ghi chu tai getRecentArticleLinks() trong vnportal/client.js). Dung workaround
+// quet trang chu de lay ArticleID moi, roi goi getArticleDetail() (van hoat dong binh
+// thuong) de lay noi dung day du tung bai.
+async function fetchNewArticleDetails(state) {
+  const links = await vnPortal.getRecentArticleLinks();
+  const unseenIds = links.map((l) => l.articleId).filter((id) => !store.isArticleSent(state, id));
+
+  const details = await Promise.all(
+    unseenIds.map(async (id) => {
+      try {
+        return await vnPortal.getArticleDetail(id);
+      } catch (err) {
+        logger.warn(`Khong lay duoc chi tiet bai ArticleID=${id}, bo qua:`, err.message);
+        return null;
+      }
+    })
   );
-  return results.flatMap((r) => r.items);
+  return details.filter(Boolean);
+}
+
+function extractAuthor(detailHtml) {
+  const matches = [...detailHtml.matchAll(/<p[^>]*text-align:\s*right[^>]*>([\s\S]*?)<\/p>/g)];
+  if (!matches.length) return undefined;
+  const lastLine = stripHtml(matches[matches.length - 1][1]);
+  return lastLine && lastLine.length <= 50 ? lastLine : undefined;
 }
 
 function toArticleItem(article) {
-  const summary = truncate(stripHtml(article.Summary) || article.ArticleCatName || "", 300);
+  const fullText = stripHtml(article.Detail) || stripHtml(article.Summary) || article.Title;
+  const description = truncate(fullText, 250);
   return {
-    title: truncate(article.Title, 150),
-    description: summary,
-    bodyText: `${summary}\n\nNguồn: ${article.ArticleLink}`,
+    title: truncate(article.Title.replace(/\s+/g, " ").trim(), 150),
+    author: extractAuthor(article.Detail || ""),
+    description,
+    bodyText: `${fullText}\n\nNguồn: ${article.ArticleLink}`,
     coverPhotoUrl: article.ImagePath || config.zalo.defaultCoverUrl || undefined,
   };
 }
@@ -37,13 +55,11 @@ function toArticleItem(article) {
 async function syncArticles(state) {
   if (!config.sync.articlesEnabled) return;
 
-  const articles = await fetchLatestArticles();
+  const articles = await fetchNewArticleDetails(state);
   // Sap xep tang dan theo ngay tao de gui theo dung thu tu thoi gian xay ra
   const sorted = [...articles].sort((a, b) => new Date(a.DateCreate) - new Date(b.DateCreate));
 
-  const unsent = sorted.filter((a) => a.Approved !== false && !store.isArticleSent(state, a.ArticleID));
-
-  const withoutCover = unsent.filter((a) => !a.ImagePath && !config.zalo.defaultCoverUrl);
+  const withoutCover = sorted.filter((a) => !a.ImagePath && !config.zalo.defaultCoverUrl);
   if (withoutCover.length) {
     logger.warn(
       `${withoutCover.length} tin bai khong co anh (ImagePath) va chua cau hinh ZALO_DEFAULT_COVER_URL, se bo qua: ` +
@@ -51,7 +67,7 @@ async function syncArticles(state) {
     );
   }
 
-  const newArticles = unsent
+  const newArticles = sorted
     .filter((a) => a.ImagePath || config.zalo.defaultCoverUrl)
     .slice(0, config.sync.maxNewItemsPerRun);
 
@@ -60,11 +76,11 @@ async function syncArticles(state) {
     return;
   }
 
-  logger.info(`Phat hien ${newArticles.length} tin bai moi, chuan bi gui Zalo OA...`);
+  logger.info(`Phat hien ${newArticles.length} tin bai moi, chuan bi tao tren Zalo OA (khong broadcast)...`);
 
   for (const batch of chunk(newArticles, config.zalo.listBatchSize)) {
     const items = batch.map(toArticleItem);
-    const result = await zaloArticle.publishArticles(items);
+    const result = await zaloArticle.createArticles(items);
     // Dry-run khong duoc danh dau "da gui" - neu khong, khi bat ZALO_SEND_ENABLED=true
     // sau nay cac tin da dry-run se bi bo qua vinh vien, khong bao gio gui that duoc.
     if (result && result.dryRun) continue;
