@@ -2,7 +2,7 @@ const config = require("../config");
 const logger = require("../utils/logger");
 const vnPortal = require("../vnportal/client");
 const zaloArticle = require("../zalo/articleClient");
-const { stripHtml, truncate } = require("../utils/text");
+const { stripHtml, truncate, normalizeTitle } = require("../utils/text");
 const store = require("../state/store");
 
 function chunk(arr, size) {
@@ -75,8 +75,32 @@ async function syncArticles(state) {
   }
   const recentArticles = articles.filter((a) => now - new Date(a.DateCreate).getTime() <= maxAgeMs);
 
+  // Loc trung theo TIEU DE, khong chi theo ArticleID - 1 bai vnPortal co the duoc gan
+  // vao nhieu chuyen muc nen xuat hien voi nhieu duong dan/ArticleID khac nhau nhung
+  // cung mot noi dung (cung tieu de). Dam bao khong bao gio tao 2 bai Zalo trung tieu de.
+  const seenTitlesThisRun = new Set();
+  const titleDuplicates = [];
+  const uniqueArticles = [];
+  for (const a of recentArticles) {
+    const normTitle = normalizeTitle(a.Title);
+    if (store.isTitleSent(state, normTitle) || seenTitlesThisRun.has(normTitle)) {
+      titleDuplicates.push(a);
+    } else {
+      seenTitlesThisRun.add(normTitle);
+      uniqueArticles.push(a);
+    }
+  }
+  if (titleDuplicates.length) {
+    logger.info(
+      `Bo qua ${titleDuplicates.length} bai trung tieu de voi bai da tao (1 bai duoc gan nhieu chuyen muc): ` +
+        titleDuplicates.map((a) => `${a.ArticleID} ("${a.Title}")`).join(", ")
+    );
+    titleDuplicates.forEach((a) => store.markArticleSent(state, a.ArticleID));
+    store.save(state);
+  }
+
   // Sap xep tang dan theo ngay tao de gui theo dung thu tu thoi gian xay ra
-  const sorted = [...recentArticles].sort((a, b) => new Date(a.DateCreate) - new Date(b.DateCreate));
+  const sorted = [...uniqueArticles].sort((a, b) => new Date(a.DateCreate) - new Date(b.DateCreate));
 
   const withoutCover = sorted.filter((a) => !a.ImagePath && !config.zalo.defaultCoverUrl);
   if (withoutCover.length) {
@@ -110,6 +134,7 @@ async function syncArticles(state) {
     result.results.forEach((r, idx) => {
       if (r.id) {
         store.markArticleSent(state, batch[idx].ArticleID);
+        store.markTitleSent(state, normalizeTitle(batch[idx].Title));
         store.save(state);
       }
     });

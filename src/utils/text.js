@@ -15,4 +15,11 @@ function truncate(text, maxLength) {
   return text.slice(0, maxLength - 1).trimEnd() + "…";
 }
 
-module.exports = { stripHtml, truncate };
+// Chuan hoa tieu de de so sanh trung lap (cung 1 bai co the duoc gan vao nhieu
+// chuyen muc tren vnPortal nen xuat hien nhieu lan voi cung tieu de, khac ArticleID
+// hoac cung ArticleID nhung link khac nhau).
+function normalizeTitle(title) {
+  return (title || "").trim().toLowerCase().replace(/\s+/g, " ");
+}
+
+module.exports = { stripHtml, truncate, normalizeTitle };

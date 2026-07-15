@@ -5,6 +5,7 @@ const logger = require("../utils/logger");
 
 const DEFAULT_STATE = {
   sentArticleIds: [],
+  sentTitles: [],
   sentDocumentKeys: [],
 };
 
@@ -28,6 +29,7 @@ function load() {
     const parsed = JSON.parse(raw);
     return {
       sentArticleIds: parsed.sentArticleIds || [],
+      sentTitles: parsed.sentTitles || [],
       sentDocumentKeys: parsed.sentDocumentKeys || [],
     };
   } catch (err) {
@@ -41,6 +43,7 @@ function save(state) {
   ensureDir(filePath);
   const trimmed = {
     sentArticleIds: state.sentArticleIds.slice(-MAX_TRACKED_IDS),
+    sentTitles: state.sentTitles.slice(-MAX_TRACKED_IDS),
     sentDocumentKeys: state.sentDocumentKeys.slice(-MAX_TRACKED_IDS),
   };
   fs.writeFileSync(filePath, JSON.stringify(trimmed, null, 2), "utf-8");
@@ -53,6 +56,19 @@ function isArticleSent(state, articleId) {
 function markArticleSent(state, articleId) {
   if (!isArticleSent(state, articleId)) {
     state.sentArticleIds.push(articleId);
+  }
+}
+
+// Cung 1 bai co the duoc gan vao nhieu chuyen muc tren vnPortal nen xuat hien nhieu
+// lan voi cung tieu de (khac ArticleID). Theo doi rieng theo tieu de (da chuan hoa)
+// de dam bao khong bao gio tao 2 bai Zalo cung tieu de, du ArticleID co khac nhau.
+function isTitleSent(state, normalizedTitle) {
+  return state.sentTitles.includes(normalizedTitle);
+}
+
+function markTitleSent(state, normalizedTitle) {
+  if (!isTitleSent(state, normalizedTitle)) {
+    state.sentTitles.push(normalizedTitle);
   }
 }
 
@@ -77,6 +93,8 @@ module.exports = {
   save,
   isArticleSent,
   markArticleSent,
+  isTitleSent,
+  markTitleSent,
   isDocumentSent,
   markDocumentSent,
   documentKey,
