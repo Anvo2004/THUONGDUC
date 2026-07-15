@@ -29,16 +29,20 @@ async function createArticle({ title, author, description, coverPhotoUrl, bodyTe
     throw new Error("Bai viet can anh cover (coverPhotoUrl) - vnPortal khong co ImagePath cho muc nay");
   }
 
+  // Zalo cong bo gioi han title 150 / description 300 ky tu nhung tren thuc te TU CHOI
+  // chuoi dung bang gioi han cong bo (da xac nhan qua log loi that: "title allow 1 to
+  // 150 characters" / "description allow 1 to 300 characters" khi truyen dung 150/300).
+  // Lui margin an toan xuong 140/250.
   const payload = {
     type: "normal",
-    title: truncate(title, 150),
+    title: truncate(title, 140),
     author: truncate(author || "UBND xã Thượng Đức", 50),
     cover: {
       cover_type: "photo",
       photo_url: coverPhotoUrl,
       status: "show",
     },
-    description: truncate(description || title, 300),
+    description: truncate(description || title, 250),
     body: [
       {
         type: "text",

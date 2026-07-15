@@ -44,7 +44,9 @@ function toArticleItem(article) {
   const fullText = stripHtml(article.Detail) || stripHtml(article.Summary) || article.Title;
   const description = truncate(fullText, 250);
   return {
-    title: truncate(article.Title.replace(/\s+/g, " ").trim(), 150),
+    // Zalo cong bo gioi han 150 ky tu nhung tu choi chuoi dung 150 (giong het truong
+    // description tung gap: cong bo 300 nhung tu choi dung 300) - lui xuong 140 an toan.
+    title: truncate(article.Title.replace(/\s+/g, " ").trim(), 140),
     author: extractAuthor(article.Detail || ""),
     description,
     bodyText: `${fullText}\n\nNguồn: ${article.ArticleLink}`,
