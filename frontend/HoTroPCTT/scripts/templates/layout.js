@@ -67,7 +67,7 @@ function layout({ title, description = "", bodyHtml, nav = "", ogImage = "", wid
   <div class="header-inner">
     <a class="brand" href="/">
       <span class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.5s7.5-4.6 7.5-10.4V5.3L12 2.5 4.5 5.3v5.8C4.5 16.9 12 21.5 12 21.5z"/><path d="M9 11.8l2.1 2.2L15 9.6"/></svg>
+        <img src="/assets/img/logo.jpg" alt="" width="40" height="40" />
       </span>
       <span class="brand-text">
         <strong>${escapeHtml(SITE_NAME)}</strong>
