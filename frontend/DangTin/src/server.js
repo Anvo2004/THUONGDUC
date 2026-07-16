@@ -21,7 +21,7 @@ app.use(
 // <meta zalo-platform-site-verification> ma Zalo Developers yeu cau phai nam trong
 // <head> trang chu (buoc "Xac thuc domain").
 //
-// PHAI khai bao TRUOC express.static: static se tu tra frontend/public/index.html cho "/"
+// PHAI khai bao TRUOC express.static: static se tu tra frontend/HoTroPCTT/public/index.html cho "/"
 // va lam mat the xac thuc. (Khong dung { index: false } de chan - nhu vay se tat index.html
 // cua CA cac thu muc con, lam /infographic/ va /video/ thanh 404.)
 const HOME_HTML_PATH = path.join(config.server.frontendPublicDir, "index.html");

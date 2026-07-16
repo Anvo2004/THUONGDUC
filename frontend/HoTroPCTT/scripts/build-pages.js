@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Sinh lai toan bo HTML tinh TU MANIFEST DA COMMIT (frontend/public/data/media-manifest.json).
+// Sinh lai toan bo HTML tinh TU MANIFEST DA COMMIT (frontend/HoTroPCTT/public/data/media-manifest.json).
 //
 // Khac voi build-media-manifest.js: khong can thu muc nguon docs/ (~2.5GB, khong commit)
 // va khong can sharp. Dung khi chi sua giao dien - template, CSS, tieu de hien thi.

@@ -1,7 +1,7 @@
 node_modules/
 .env
-data/state.json
-data/zalo-token.json
+frontend/DangTin/data/state.json
+frontend/DangTin/data/zalo-token.json
 docs/
 images/
-frontend/public/media/
+frontend/HoTroPCTT/public/media/

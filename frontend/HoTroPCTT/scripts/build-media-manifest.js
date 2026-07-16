@@ -4,12 +4,12 @@ const sharp = require("sharp");
 const { uniqueSlug, slugify } = require("./lib/slugify");
 const { parseOrder } = require("./lib/parseOrder");
 
-// __dirname = frontend/scripts. Ma nguon docs/ nam o goc project (ngang hang voi frontend/),
-// con thu muc phuc vu web (public/) nam trong frontend/.
-const PROJECT_ROOT = path.join(__dirname, "..", "..");
-const FRONTEND_DIR = path.join(__dirname, "..");
+// __dirname = frontend/HoTroPCTT/scripts. Ma nguon docs/ nam o goc project (ngang hang voi
+// frontend/), con thu muc phuc vu web (public/) nam trong frontend/HoTroPCTT/.
+const PROJECT_ROOT = path.join(__dirname, "..", "..", "..");
+const FEATURE_DIR = path.join(__dirname, "..");
 const DOCS_DIR = path.join(PROJECT_ROOT, "docs");
-const PUBLIC_DIR = path.join(FRONTEND_DIR, "public");
+const PUBLIC_DIR = path.join(FEATURE_DIR, "public");
 const MEDIA_DIR = path.join(PUBLIC_DIR, "media");
 const MANIFEST_PATH = path.join(PUBLIC_DIR, "data", "media-manifest.json");
 
