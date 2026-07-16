@@ -5,6 +5,7 @@
   var input = document.getElementById("search-input");
   var results = document.getElementById("search-results");
   var clearBtn = document.getElementById("search-clear");
+  var submitBtn = document.getElementById("search-submit");
   if (!input || !results) return;
 
   var data = null;
@@ -169,4 +170,15 @@
       }
     }
   });
+
+  if (submitBtn) {
+    submitBtn.addEventListener("click", function () {
+      var first = results.querySelector(".search-result");
+      if (first) {
+        location.href = first.getAttribute("href");
+      } else {
+        input.focus();
+      }
+    });
+  }
 })();

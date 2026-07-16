@@ -12,6 +12,7 @@ function searchBox() {
   </span>
   <input id="search-input" type="search" autocomplete="off" placeholder="Tìm: bão, sạt lở, đuối nước…" aria-describedby="search-hint" />
   <button type="button" class="search-clear" id="search-clear" hidden aria-label="Xóa ô tìm kiếm">&times;</button>
+  <button type="button" class="search-btn" id="search-submit">Tìm</button>
 </form>
 <p class="search-hint sr-only" id="search-hint">Nhập từ khóa để tìm nhanh trong hình ảnh và video hướng dẫn.</p>
 <div id="search-results" class="search-results" hidden></div>`;
